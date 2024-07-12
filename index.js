@@ -60,7 +60,7 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 const generateId = () => {
   const totalId = persons.length
-  return Math.floor(Math.random() * (100 - totalId) + totalId).toString
+  return (Math.floor(Math.random() * (100 - totalId) + totalId))
 }
 
 app.post('/api/persons', (request, response) => {
@@ -76,7 +76,7 @@ app.post('/api/persons', (request, response) => {
     })
   }
     const person = {
-      id: generateId(),
+      id: generateId().toString(),
       name: request.body.name,
       number: request.body.number
     }
