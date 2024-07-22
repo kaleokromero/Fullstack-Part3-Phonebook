@@ -10,13 +10,10 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 app.use(express.json())
 app.use(express.static('dist'))
 
-if(process.argv.length<3) {
-  console.log('give password a argument')
-  process.exit(1)
-}
-const password = process.argv[2]
+
 const url = process.env.MONGODB_URI
 mongoose.set('strictQuery', false)
+
 
 mongoose.connect(url)
 .then(() => {
@@ -25,7 +22,6 @@ mongoose.connect(url)
 .catch(error => {
   console.error('Error connecting to MongoDB:', error);
 });
-
 
 const phonebookSchema = new mongoose.Schema({
   name: String,
