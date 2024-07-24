@@ -73,7 +73,7 @@ app.post('/api/persons', (request, response) => {
       response.status(400).send(error.message)
     })
 })
-const PORT = process.env.PORT || 5173
+const PORT = process.env.PORT || 10000
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
